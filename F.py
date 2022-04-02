@@ -2,6 +2,10 @@
 from telegram.ext import Updater, MessageHandler, Filters, CommandHandler
 from datetime import datetime
 from telegram import ReplyKeyboardMarkup
+from flask import Flask, request
+
+
+app = Flask(__name__)
 
 
 # Определяем функцию-обработчик сообщений.
@@ -57,3 +61,6 @@ def main():
 # Запускаем функцию main() в случае запуска скрипта.
 if __name__ == '__main__':
     main()
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
+
