@@ -2,12 +2,6 @@
 from telegram.ext import Updater, MessageHandler, Filters, CommandHandler
 from datetime import datetime
 from telegram import ReplyKeyboardMarkup
-from flask import Flask, request
-import logging
-import os
-
-
-app = Flask(__name__)
 
 
 # Определяем функцию-обработчик сообщений.
@@ -31,7 +25,6 @@ def help(update, context):
     update.message.reply_text('Этот бот может повторять сообщения, за исключением некоторых команд')
 
 
-@app.route('/')
 def main():
     # Создаём объект updater - связь сервера и клиента.
     updater = Updater('5289690090:AAGyprUVWh5J1Wth1AEye9-R61-NLdO-GfQ')
@@ -60,9 +53,8 @@ def main():
     updater.idle()
 
 
-# Запускаем функцию main() в случае запуска скрипта.
-if __name__ == '__main__':
-    main()
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+main()
 
+# Запускаем функцию main() в случае запуска скрипта.
+# if __name__ == '__main__':
+#     main()
