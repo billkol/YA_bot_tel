@@ -29,7 +29,7 @@ def help(update, context):
     update.message.reply_text('Этот бот может повторять сообщения, за исключением некоторых команд')
 
 
-@app.route('/post', methods=['POST'])
+@app.route('/')
 def main():
     # Создаём объект updater - связь сервера и клиента.
     updater = Updater('5289690090:AAGyprUVWh5J1Wth1AEye9-R61-NLdO-GfQ')
